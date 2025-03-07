@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/improveConsumtion  # 자신의 MySQL URL로 변경하세요.
+    username: icbs  # 자신의 MySQL username으로 변경하세요.
+    password: Rhdqudtjs0323@  # 자신의 MySQL password로 변경하세요.
+    hikari:
+      maximum-pool-size: 10  # 최대 커넥션 수
+      minimum-idle: 2  # 최소 커넥션 수
+      idle-timeout: 30000  # 최대 유휴 시간
+      max-lifetime: 1800000  # 최대 연결 시간
+      connection-timeout: 30000  # 연결 타임아웃
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect  # MySQL용 Dialect (PostgreSQL은 변경 필요)
+    hibernate:
+      ddl-auto: update  # 자동 테이블 생성 (create / update / none 설정 가능)
+    show-sql: true  # SQL 로그 출력
+    properties:
+      hibernate:
+        format_sql: true  # SQL을 보기 좋게 출력
+
+  neo4j:  # ✅ neo4j 설정 위치 수정
+    uri: bolt://localhost:7687  # Neo4j 서버 주소
+    authentication:
+      username: neo4j
+      password: Rhdqudtjs1@  # 변경한 비밀번호 입력
+    database: neo4j
